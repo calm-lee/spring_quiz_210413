@@ -1,26 +1,19 @@
-package com.calmlee;
+package com.calmlee.config;
 
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-@MapperScan(basePackages = "com.calmlee.*")
-@SpringBootApplication
+@MapperScan(basePackages = "com.calmlee.*") // interface, @Repository가 있는 패키지의 기본 경로
+@Configuration // 설정을 위한 spring bean으로 등록
+public class DataBaseConfig {
 
-public class SpringExampleApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SpringExampleApplication.class, args);
-	}
-	
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();

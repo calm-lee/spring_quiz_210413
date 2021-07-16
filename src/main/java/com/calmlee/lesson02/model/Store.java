@@ -3,6 +3,7 @@ package com.calmlee.lesson02.model;
 import java.util.Date;
 
 public class Store {
+	
 	private int id;
 	private String name;
 	private String phoneNumber;
@@ -11,6 +12,7 @@ public class Store {
 	private String introduce;
 	private Date createdAt;
 	private Date updatedAt;
+	
 	public int getId() {
 		return id;
 	}
@@ -59,6 +61,5 @@ public class Store {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
 
 }

@@ -12,7 +12,7 @@ import com.calmlee.lesson02.model.Store;
 public class StoreBO {
 	
 	@Autowired
-	private StoreDAO storeDAO;
+	private StoreDAO storeDAO; // 의존성 주입
 	
 	public List<Store> getStoreList(){
 		return storeDAO.selectStoreList();

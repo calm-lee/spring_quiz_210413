@@ -5,7 +5,7 @@
 <mapper namespace="com.calmlee.lesson02.dao.StoreDAO">
 	<select id = "selectStoreList" resultType="com.calmlee.lesson02.model.Store">
 		SELECT
-		*
+			*
 		FROM
 			`store`
 	</select>

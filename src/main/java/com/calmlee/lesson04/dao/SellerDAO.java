@@ -10,5 +10,5 @@ public interface SellerDAO {
 			@Param("nickname") String nickname,
 			@Param("profileImageUrl") String profileImageUrl,
 			@Param("temperature") double temperature
-			);
+	);
 }

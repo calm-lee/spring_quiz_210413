@@ -9,7 +9,8 @@ public class Seller {
 	private String profileImageUrl;
 	private double temperature;
 	private Date createdAt;
-	private Date upgradedAt;
+	private Date updatedAt;
+	
 	public int getId() {
 		return id;
 	}
@@ -40,11 +41,10 @@ public class Seller {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Date getUpgradedAt() {
-		return upgradedAt;
+	public Date getUpdatedAt() {
+		return updatedAt;
 	}
-	public void setUpgradedAt(Date upgradedAt) {
-		this.upgradedAt = upgradedAt;
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
-	
 }

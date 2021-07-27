@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<div class="container">
 <h1>1. 후보자 득표율</h1>
 	<table class="table text-center">
 		<thead>
@@ -27,10 +28,11 @@
 			<tr>
 				<td>${status.count}</td>
 				<td><fmt:formatNumber value="${candidate}" type="number" /></td>
-				<td><fmt:formatNumber value="${candidate*0.000001}" type="percent" /></td>
+				<td><fmt:formatNumber value="${candidate / totalCount}" type="percent" /></td>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+</div>
 </body>
 </html>

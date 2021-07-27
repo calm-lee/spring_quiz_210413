@@ -15,7 +15,7 @@
 
 </head>
 <body>
-	
+<div class="container">	
 	<h1>2. 카드명세서</h1>
 	<table class="table text-center">
 		<thead>
@@ -37,6 +37,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	
+</div>	
 </body>
 </html>

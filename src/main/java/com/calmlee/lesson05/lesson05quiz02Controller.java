@@ -21,6 +21,7 @@ public class lesson05quiz02Controller {
 		candidates.add(563057); 
 		
 		model.addAttribute("candidates", candidates);
+		model.addAttribute("totalCount", 100000);
 		
 		return "lesson05/quiz02_3";
 	}

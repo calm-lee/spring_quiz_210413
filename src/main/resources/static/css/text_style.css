@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+body{background-color: rgb(3, 126, 167);}
+#aside{width: 20%; background-color: #6690F2;}
+#content{width: 80%}
+.logo{color: white; font-weight: bold;}
+.menu-font{color: white;}
+.menu-font:hover{color: white; border:white}

@@ -17,4 +17,30 @@
 		FROM 
 			`weatherhistory`
 	</select>
+	
+	<insert id="addWeather" parameterType="map">
+		insert into `weatherhistory`
+		(
+			`date`
+			,`weather`
+			,`temperatures`
+			,`precipitation`
+			,`microDust`
+			,`windSpeed`
+			,`createdAt`
+			,`updatedAt`
+		)
+		values
+		(
+			#{date}
+			,#{weather}
+			,#{temperatures}
+			,#{precipitation}
+			,#{microDust}
+			,#{windSpeed}
+			,now()
+			,now()
+		)
+	</insert>
+	
 </mapper>

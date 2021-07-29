@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.calmlee.lesson06.dao.NewUserDAO">
+
+	<select id = "getUser" parameterType = "com.calmlee.lesson06.model.NewUser" resultType="com.calmlee.lesson06.model.NewUser">
+		SELECT
+			`id`
+			,`name`
+			, `birth`
+			, `introduce`
+			, `email`
+			,  `createdAt`
+			,  `updatedAt`
+		FROM
+			`new_user`
+		order by `id` desc
+		limit 1;
+	</select>
+	
+	
+	<insert id = "insertNewUser" parameterType="com.calmlee.lesson06.model.NewUser">
+		INSERT INTO `new_user`
+		(
+			`name`
+			, `birth`
+			, `introduce`
+			, `email`
+			,  `createdAt`
+			,  `updatedAt`	
+		)
+		VALUES
+		(
+			 #{name}
+			, #{birth}
+			, #{introduce}
+			, #{email}
+			, now()
+			, now()
+		)
+				
+	</insert>
+</mapper>

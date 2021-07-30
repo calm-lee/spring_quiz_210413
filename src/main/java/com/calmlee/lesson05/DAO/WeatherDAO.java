@@ -13,7 +13,7 @@ public interface WeatherDAO {
 	
 	public List<Weather> getWeather();
 	
-	public void addWeather(
+	public int addWeather(
 			@Param("date") String date
 			, @Param("weather") String weather
 			, @Param("temperatures") double temperatures

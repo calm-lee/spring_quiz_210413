@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
 <mapper namespace="com.calmlee.lesson06.dao.favoriteDAO">
 
-	<insert id="insertFavorite" parameterType="map">
+	<insert id="insertFavorite" parameterType="string">
 		INSERT INTO `favorite`
 		(
 			`name`
@@ -20,7 +21,7 @@
 		)	
 	</insert>
 
-	<select id="selectFavorite" parameterType="com.calmlee.lesson06.model.Favorite">
+	<select id="selectFavorite" resultType="com.calmlee.lesson06.model.Favorite">
 		
 		SELECT
 			`id`

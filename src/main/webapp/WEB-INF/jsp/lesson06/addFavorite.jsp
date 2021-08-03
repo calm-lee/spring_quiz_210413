@@ -17,42 +17,42 @@
 <body>
 	<div class="container">
 	<h1>즐겨찾기 추가하기</h1>
-		<b>이름: </b><input type="text" name="name" id="name" class="form-control col-12" placeholder="이름을 입력하세요."><br>
+		<b>제목: </b><input type="text" name="name" id="name" class="form-control col-12" placeholder="이름을 입력하세요."><br>
 		<b>주소: </b><input type="text" name="url" id="url" class="form-control col-12" placeholder="url을 입력하세요."><br>
 		<p>
-				<input type="submit" class="btn btn-info form-control col-12" id="addBtn" value="추가">
+				<button type="button" class="btn-success btn-block form-control col-12" id="addBtn">추가</button>
 		</p>
 	</div>
 	<script>
 	$(document).ready(function(){
-		$('#addBtn').on('click',function(e){
+		$('#addBtn').on('click',function(){
 			//e.preventDefault();
 			
-			let name = $('input[name=name]').val().trim();
+			let name = $('input[name=name]').val().trim();			
+			let url = $('input[name=url]').val().trim();
+			
 			if(name == ''){
 				alert("제목을 입력해주세요.");
 				return;
 			}
-			
-			let url = $('input[name=url]').val().trim();
-			if(url == ''){
-				alert("url을 입력해주세요.");
-				return;
-			} else if((url.indexOf('http')) == false){
-				alert("http(s)를 입력해주세요.");
+		
+			if(( url.startsWith("http")  || url.startsWith("https") ) == false){
+				alert("주소형식이 잘못되었습니다.");
 				return;
 			}
 			
+			
 			$.ajax({
-				type: 'POST'
-				, url: '/lesson06/after_add'
-				, data: {'name' : name, 'url': url}
-			    , success: function(data){
-			    	alert(data);
-			    	location.href="/lesson06/after_add"
+				type: 'POST' //REQUEST METHOD
+				, url: '/lesson06/after_add' // Request를 보낼 주소
+				, data: {'name' : name, 'url': url} //'key' : value
+				, dataType: 'json' // response body  -  AJAX 통신 후 response로는 String 또는 JSON이 리턴되어야 한다.
+			    , success: function(data){ // 결과가 성공했을 때의 정의
+			    	alert(data.result);
+			    	location.href="/lesson06/favorite_list"
 			    }, complete: function(data){
 			    	alert("완료");
-			    }, error: function(e){
+			    }, error: function(e){ // 에러일 때 
 			    	alert("error: " + e);
 			    }
 			    

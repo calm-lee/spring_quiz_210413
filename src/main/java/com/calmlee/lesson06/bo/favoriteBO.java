@@ -22,4 +22,8 @@ public class favoriteBO {
 		return favoriteDAO.selectFavorite();
 	}
 	
+	public Favorite existedByUrl(String url) {
+		return favoriteDAO.existedByUrl(url);
+	}
+	
 }

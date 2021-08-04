@@ -34,4 +34,19 @@
 		
 	</select>
 	
+	<select id="existedByUrl" parameterType="String" resultType="com.calmlee.lesson06.model.Favorite">
+		
+		select 
+			`id`
+			,`name`
+			,`url`
+			,`createdAt`
+			,`updatedAt`
+		from
+			`favorite`
+		where 
+			`url` = #{url}
+		
+	</select>
+	
 </mapper>

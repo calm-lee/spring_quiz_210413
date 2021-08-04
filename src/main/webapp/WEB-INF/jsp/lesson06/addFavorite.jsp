@@ -18,18 +18,33 @@
 	<div class="container">
 	<h1>즐겨찾기 추가하기</h1>
 		<b>제목: </b><input type="text" name="name" id="name" class="form-control col-12" placeholder="이름을 입력하세요."><br>
-		<b>주소: </b><input type="text" name="url" id="url" class="form-control col-12" placeholder="url을 입력하세요."><br>
+
+		<b>주소: </b>
+		<div class="form-inline">
+			<input type="text" name="url" id="url" class="form-control col-11" placeholder="url을 입력하세요.">
+			<button type="button" id="checkBtn" class="btn-info form-control col-1">중복확인</button>
+		</div>
+
+		<small id="isDuplicatedText" class="text-danger d-none">중복된 url입니다</small>
+		<small id="isAvailableText" class="text-primary d-none">사용가능한 url입니다</small>
+		
+<!-- 			<div id="statusArea"></div><br> -->
+		<br>
+		<br>
 		<p>
-				<button type="button" class="btn-success btn-block form-control col-12" id="addBtn">추가</button>
+			<button type="button" class="btn-success btn-block form-control col-12" id="addBtn">추가</button>
 		</p>
 	</div>
 	<script>
 	$(document).ready(function(){
+		
+		
 		$('#addBtn').on('click',function(){
 			//e.preventDefault();
 			
 			let name = $('input[name=name]').val().trim();			
 			let url = $('input[name=url]').val().trim();
+			
 			
 			if(name == ''){
 				alert("제목을 입력해주세요.");
@@ -59,6 +74,39 @@
 			});
 			
 		});
+		
+		
+		//중복확인 버튼
+		$('#checkBtn').on('click', function(){
+			
+			let url = $('#url').val().trim();
+			if(url == ''){
+				alert("검사할 url을 입력해주세요.");
+				return;
+			}
+			
+			// AJAX로 DB에 있는지 확인
+			$.ajax({
+				type : 'post'
+				, url: '/lesson06/is_duplication'
+				, data: {'url':url}
+				, success: function(data){
+					if(data.isDuplication == true){
+						$('#isDuplicatedText').removeClass('d-none');
+						$('#isAvailableText').addClass('d-none');
+						return;
+					} else {
+						$('#isDuplicatedText').addClass('d-none');
+						$('#isAvailableText').removeClass('d-none');
+						return;
+					}
+				}
+				, error: function(e){
+					alert("error: " + e);
+				}
+			});			
+		});
+		
 	});
 	</script>
 </body>

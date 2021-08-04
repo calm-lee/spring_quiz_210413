@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,6 +60,22 @@ public class favoriteController {
 		return "lesson06/favoriteTable";
 	}
 	
-	
+	@RequestMapping("/is_duplication")
+	@ResponseBody
+	public Map<String, Boolean> isDuplication(
+			@RequestParam("url") String url
+			){
+		
+		Favorite favorite = favoriteBO.existedByUrl(url);
+		
+		Map<String, Boolean> result = new HashMap<>();
+		
+		result.put("isDuplication", false);
+		if(favorite != null) {
+			result.put("isDuplication", true);
+		}
+		
+		return result;
+	}
 	
 }

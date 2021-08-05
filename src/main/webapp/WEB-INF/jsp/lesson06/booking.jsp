@@ -66,7 +66,16 @@
 							<td>${booking.day}</td>
 							<td>${booking.headcount}</td>
 							<td>${booking.phoneNumber}</td>
-							<td>${booking.state}</td>
+							<td>
+							<c:choose>
+								<c:when test="${booking.state eq '대기중'}">
+									<span class=text-primary>${booking.state}</span>
+								</c:when>
+								<c:otherwise>
+									<span class=text-success>${booking.state}</span>								
+								</c:otherwise>
+							</c:choose>
+							</td>
 							<td><button type="button" class="delete-btn btn btn-danger"
 									data-delete-id="${booking.id}">삭제</button></td>
 						</tr>

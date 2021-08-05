@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,4 +77,17 @@ public class favoriteController {
 		return result;
 	}
 	
+	@RequestMapping("/delete_favorite")
+	@ResponseBody
+	public String deleteFavorite(
+			@RequestParam("favorite_id") int id) {
+		
+		// DB id로 delete
+		
+		int deletedRow = favoriteBO.deleteFavoriteById(id);
+		
+		// 결과 행이 1이면 성공, 아니면 실패 
+		return(deletedRow == 1 ? "success" : "fail"); //삼항 연산자
+	
+	}
 }

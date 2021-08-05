@@ -49,4 +49,14 @@
 		
 	</select>
 	
+	<delete id = "deleteFavoriteById"> <!-- parameterType: parameter가 하나기 때문에 없어도 됨 / resultType: 내부적으로 삭제하는 거기 때문에 없어도됨 -->
+	
+		DELETE 
+		FROM 
+			`favorite`
+		WHERE
+			`id` = #{id}
+	
+	</delete>
+	
 </mapper>

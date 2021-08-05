@@ -3,6 +3,7 @@ package com.calmlee.lesson06.model;
 import java.util.Date;
 
 public class Favorite {
+	
 	 private int id;
 	 private String name; 
 	 private String url; 

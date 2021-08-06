@@ -101,13 +101,17 @@
 			let deletedId = $(this).data('delete-id');
 
 			$.ajax({
-				type : 'post',
+				type : 'delete',
 				data : {
 					'deleted_id' : deletedId
 				},
 				url : '/lesson06/delete_booking',
 				success : function(data) {
-					location.reload();
+					if(data.result == "success"){
+						location.reload();
+					} else{
+						alert("삭제에 실패했습니다. 관리자에게 문의해주십시오.");
+					}
 				},
 				error : function(e) {
 					alert("error: " + e)

@@ -22,5 +22,9 @@ public class pensionBO {
 	public int deleteBookingById(int id) {
 		return pensionDAO.deleteBookingById(id);
 	}
+
+	public void addBooking(String name, int headcount, String date, int day, String phoneNumber) {
+		pensionDAO.insertBooking(name, headcount, date, day, phoneNumber);
+	}
 	
 }
